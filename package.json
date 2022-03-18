@@ -1,6 +1,6 @@
 {
   "name": "tic-tac-toe",
-  "homepage": "https://davidyen-888.github.io/tic-tac-toe",
+  "homepage": "https://davidyen-888.github.io/tic-tac-toe/src",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
