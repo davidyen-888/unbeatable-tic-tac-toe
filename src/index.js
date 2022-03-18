@@ -2,26 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-// // Controled component which receive values from the Board component and inform the Board component when they're clicked
-// class Square extends React.Component {
-//   // add a constructor to the Square class to initialize the state
-//   // constructor(props) {
-//   //   super(props);
-//   //   this.state = {
-//   //     value: null,
-//   //   };
-//   // }
-//   render() {
-//     return (
-//       <button
-//         className="square"
-//         onClick={() => { this.props.onClick() }}>
-//         {this.props.value}
-//       </button>
-//     );
-//   }
-// }
-
 // change Square to function component
 function Square(props) {
   return (
@@ -37,14 +17,6 @@ function Square(props) {
 // The parent component can pass the state back down to the children via props
 // This keeps the child components in sync with each other and the parent
 class Board extends React.Component {
-  // // add a constructor to the Board class to initialize the state
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     squares: Array(9).fill(null), // the state contains an array of 9 nulls corresponding to the 9 squares
-  //     xIsNext: true,  // xIsNext will be flipped to determine which player's turn it is
-  //   }
-  // }
   // passing down value and onClick to the Square component
   renderSquare(i) {
     return <Square
@@ -53,49 +25,19 @@ class Board extends React.Component {
     />;
   }
 
-  // handleClick(i) {
-  //   // create a copy of the squares array
-  //   const squares = this.state.squares.slice();
-  //   // if the square is already filled or someone has won, return
-  //   if (calculateWinner(squares) || squares[i]) {
-  //     return;
-  //   }
-  //   squares[i] = this.state.xIsNext ? 'X' : 'O';
-  //   this.setState({
-  //     squares: squares,
-  //     xIsNext: !this.state.xIsNext, // flip the value of xIsNext
-  //   });
-  // }
-
   render() {
-    // const winner = calculateWinner(this.state.squares);
-    // let status;
-    // if (winner) {
-    //   status = 'Winner: ' + winner;
-    // } else {
-    //   status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
-    // }
-
-
+    // Create squares with two for loops
+    const boardSize = 3;
+    let squares = [];
+    for (let i = 0; i < boardSize; ++i) {
+      let row = [];
+      for (let j = 0; j < boardSize; ++j) {
+        row.push(this.renderSquare(i * boardSize + j));
+      }
+      squares.push(<div key={i} className="board-row">{row}</div>);
+    }
     return (
-      <div>
-        {/* <div className="status">{status}</div> */}
-        <div className="board-row">
-          {this.renderSquare(0)}
-          {this.renderSquare(1)}
-          {this.renderSquare(2)}
-        </div>
-        <div className="board-row">
-          {this.renderSquare(3)}
-          {this.renderSquare(4)}
-          {this.renderSquare(5)}
-        </div>
-        <div className="board-row">
-          {this.renderSquare(6)}
-          {this.renderSquare(7)}
-          {this.renderSquare(8)}
-        </div>
-      </div >
+      <div> {squares}</div >
     );
   }
 }
