@@ -1,10 +1,10 @@
 body {
-  font: 24px "Century Gothic", Futura, sans-serif;
+  font: 22px "Century Gothic", Futura, sans-serif;
   margin: 20px;
 }
 button {
   width: 100%;
-  font-size: 16px;
+  font-size: 14px;
   border: 0;
   border-radius: 3px;
   background: gray;
@@ -24,9 +24,9 @@ button {
   margin-top: -1px;
   padding: 0;
   text-align: center;
-  width: 80px;
+  width: 120px;
   line-height: 80px;
-  height: 80px;
+  height: 120px;
   display: inline-block;
     color: #fff;
     font-weight: bold;
@@ -43,7 +43,6 @@ button {
  }
 
  .app-header {
-  border-bottom: 1px solid #e5e5e5;
   padding: 20px;
   text-align: center;
 }
