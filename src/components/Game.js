@@ -69,12 +69,12 @@ export default class Game extends React.Component {
         const moves = history.map((step, move) => { // step is the value of history array, move is the index of history array
             const desc = move ?
                 'Go to move #' + (move + 1) :
-                'Go to game start';
+                'Restart game!';
             return (
                 // key is used to identify each element in an array, since the moves are never reordered, we can use the move as the key
-                <li key={move}>
+                <ul key={move}>
                     <button onClick={() => { this.jumpTo(move) }}>{desc}</button>
-                </li>
+                </ul>
             );
         });
 
@@ -99,8 +99,8 @@ export default class Game extends React.Component {
                         />
                     </div>
                     <div className="game-info">
-                        <div>{status}</div>
-                        <ol>{moves}</ol>
+                        <div className="status">{status}</div>
+                        <span id="moves">{moves}</span>
                     </div>
                 </div>
             </div>

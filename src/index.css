@@ -1,76 +1,83 @@
 body {
   font: 22px "Century Gothic", Futura, sans-serif;
   margin: 20px;
+  text-align: center;
 }
+
+ul {
+  list-style: none;
+  margin: 5%;
+  padding: 0;
+}
+
+.status{
+  margin: 20px;
+  font-size: 24px;
+  position: relative;
+}
+
+button:hover{
+  background-color: rgba(194, 208, 233, 0.888);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
 button {
   width: 100%;
-  font-size: 14px;
+  font-size: 1rem;
   border: 0;
-  border-radius: 3px;
-  background: gray;
+  border-radius: 5px;
   color: white;
   margin: 1px;
-  border-radius: 5px;
-  padding: 10px;
+  background: gray;
+  padding: 10%
 }
 
-.square {
-  background: #fff;
-  border: 1px solid #999;
-  float: left;
-  font-size: 50px;
-  font-weight: bold;
-  margin-right: -1px;
-  margin-top: -1px;
-  padding: 0;
-  text-align: center;
-  width: 120px;
-  line-height: 80px;
-  height: 120px;
-  display: inline-block;
-    color: #fff;
-    font-weight: bold;
-    background-color: #5baceb;
-    margin: 10px;
-    border: 1px solid #0a385d;
-    background-image: linear-gradient(bottom, rgb(73,132,180) 0%, rgb(97,155,203) 100%);
-    background-image: -o-linear-gradient(bottom, rgb(73,132,180) 0%, rgb(97,155,203) 100%);
-    background-image: -moz-linear-gradient(bottom, rgb(73,132,180) 0%, rgb(97,155,203) 100%);
-    background-image: -webkit-linear-gradient(bottom, rgb(73,132,180) 0%, rgb(97,155,203) 100%);
-    border-radius: 5px;
-    text-shadow: 0px -1px 0px rgba(0,0,0,.5);
-    box-shadow: 0px 6px 0px #2b638f, 0px 3px 15px rgba(0,0,0,.4), inset 0px 1px 0px rgba(255,255,255,.3), inset 0px 0px 3px rgba(255,255,255,.5);
- }
-
- .app-header {
-  padding: 20px;
-  text-align: center;
+.game{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  top: 50px;
 }
- 
- /* Board */
-.board-row:after {
-  clear: both;
-  content: "";
-  display: table;
- }
- /* Game */
-.game {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.board-row{
   display: flex;
-  flex-direction: row;
- }
- /* Game Info */
-ul {
-  padding-left: 30px;
+  flex-flow: row nowrap;
+  position: relative;
 }
- .game-info {
-  margin-left: 20px;
-  padding: auto;
- }
- .status {
-  margin-bottom: 10px;
- }
- 
+
+.game-info{
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+@media (min-width: 769px) {
+  .square{
+    background-color: rgba(4, 38, 97, 0.75);
+    color: white;
+    border: 1px solid #999;
+    padding: 0;
+    font-size: 84px;
+    text-align: center;
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media (max-width: 768px) {
+  .square{
+    background-color: rgba(4, 38, 97, 0.75);
+    color: white;
+    border: 1px solid #999;
+    padding: 0;
+    font-size: 84px;
+    text-align: center;
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.square:focus {
+  outline: none;
+  background-color: #222;
+}
