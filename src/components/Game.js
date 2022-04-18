@@ -25,7 +25,7 @@ export default class Game extends React.Component {
         if (calculateWinner(squares) || squares[i]) {
             return Promise.resolve();
         }
-        squares[i] = this.state.xIsNext ? 'X' : 'O';
+        squares[i] = this.state.xIsNext ? 'O' : 'X';
         const nextState = {
             history: history.concat([{  // don't mutate the original array
                 squares: squares,
@@ -45,7 +45,7 @@ export default class Game extends React.Component {
         await this.makeMove(i);
         // Apply AI move after the human player makes a move
         const squares = this.state.history[this.state.stepNumber].squares.slice();
-        const bestSquare = findBestSquare(squares, this.state.xIsNext ? 'X' : 'O');
+        const bestSquare = findBestSquare(squares, this.state.xIsNext ? 'O' : 'X');
         if (bestSquare !== -1) {
             await this.makeMove(bestSquare);
         }
@@ -84,7 +84,7 @@ export default class Game extends React.Component {
         } else if (full) {
             status = `It's a Draw!`;
         } else {
-            status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+            status = 'You are: ' + (this.state.xIsNext ? 'O' : 'X');
         }
 
         return (
@@ -142,7 +142,7 @@ function calculateWinner(squares) {
 function findBestSquare(squares, player) {
     // 'player' is the maximizing player
     // 'opponent' is the minimizing player
-    const opponent = player === 'X' ? 'O' : 'X';
+    const opponent = player === 'O' ? 'X' : 'O';
 
     const minimax = (squares, isMax) => {
         const winner = calculateWinner(squares);
