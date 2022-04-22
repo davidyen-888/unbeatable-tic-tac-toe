@@ -88,7 +88,7 @@ export default class Game extends React.Component {
         }
 
         return (
-            <div className="app-header">
+            <div>
                 <h1>Tic Tac Toe</h1>
                 <h3> Try to beat your AI opponent!</h3>
                 <div className="game">

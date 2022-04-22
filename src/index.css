@@ -40,6 +40,7 @@ button {
   position: relative;
   top: 50px;
 }
+
 .board-row{
   display: flex;
   flex-flow: row nowrap;
